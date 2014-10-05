@@ -66,7 +66,6 @@ class kmeans(MRJob):
         line = [int(i) for i in line]
         point = numpy.array(line)
         centroids = eval(str(self.options.centroids))
-        k = int(self.options.k)
         distances = [numpy.linalg.norm(point - c) for c in centroids]
         min_dist = numpy.argmin(distances)
         yield centroids[min_dist], point.tolist()
